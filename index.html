@@ -678,52 +678,94 @@
         <div style="display:inline-flex;align-items:center;gap:9px;margin-top:18px;font-family:'Noto Sans JP',sans-serif;font-weight:700;font-size:12.5px;color:var(--acc);border:1px solid var(--line2);padding:8px 16px;border-radius:100px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--acc);"></span>無料相談・資料請求 受付中</div>
       </div>
 
-      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
-        <form onsubmit="{{ onSubmit }}" style="background:var(--surf);border:1px solid var(--line2);border-radius:calc(var(--r) + 4px);padding:38px 36px;display:grid;grid-template-columns:1fr 1fr;gap:22px;">
-          <div style="grid-column:1 / -1;display:flex;flex-direction:column;gap:8px;">
-            <label style="font-size:13.5px;font-weight:700;color:var(--txt);">お問い合わせ種別 <span style="color:var(--acc);">*</span></label>
-            <select value="{{ kind }}" onchange="{{ onKind }}" style="background:var(--bg);border:1px solid var(--line2);border-radius:var(--r);padding:13px 15px;color:var(--txt);font-size:15px;outline:none;">
-              <option value="無料相談">無料相談</option>
-              <option value="資料請求">資料請求</option>
-              <option value="助成金の活用相談">助成金の活用相談</option>
-              <option value="その他のお問い合わせ">その他のお問い合わせ</option>
-            </select>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <label style="font-size:13.5px;font-weight:700;color:var(--txt);">会社名 <span style="color:var(--acc);">*</span></label>
-            <input value="{{ company }}" oninput="{{ onCompany }}" placeholder="株式会社○○" style="background:var(--bg);border:1px solid var(--line2);border-radius:var(--r);padding:13px 15px;color:var(--txt);font-size:15px;outline:none;" style-focus="border-color:var(--acc);">
-            <sc-if value="{{ errCompany }}" hint-placeholder-val="{{ false }}"><span style="font-size:12.5px;color:#ff6b6b;">{{ errCompany }}</span></sc-if>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <label style="font-size:13.5px;font-weight:700;color:var(--txt);">お名前 <span style="color:var(--acc);">*</span></label>
-            <input value="{{ name }}" oninput="{{ onName }}" placeholder="山田 太郎" style="background:var(--bg);border:1px solid var(--line2);border-radius:var(--r);padding:13px 15px;color:var(--txt);font-size:15px;outline:none;" style-focus="border-color:var(--acc);">
-            <sc-if value="{{ errName }}" hint-placeholder-val="{{ false }}"><span style="font-size:12.5px;color:#ff6b6b;">{{ errName }}</span></sc-if>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <label style="font-size:13.5px;font-weight:700;color:var(--txt);">メールアドレス <span style="color:var(--acc);">*</span></label>
-            <input value="{{ email }}" oninput="{{ onEmail }}" placeholder="info@example.com" style="background:var(--bg);border:1px solid var(--line2);border-radius:var(--r);padding:13px 15px;color:var(--txt);font-size:15px;outline:none;" style-focus="border-color:var(--acc);">
-            <sc-if value="{{ errEmail }}" hint-placeholder-val="{{ false }}"><span style="font-size:12.5px;color:#ff6b6b;">{{ errEmail }}</span></sc-if>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <label style="font-size:13.5px;font-weight:700;color:var(--txt);">電話番号 <span style="color:var(--mut2);font-weight:400;">(任意)</span></label>
-            <input value="{{ tel }}" oninput="{{ onTel }}" placeholder="03-0000-0000" style="background:var(--bg);border:1px solid var(--line2);border-radius:var(--r);padding:13px 15px;color:var(--txt);font-size:15px;outline:none;" style-focus="border-color:var(--acc);">
-          </div>
-          <div style="grid-column:1 / -1;display:flex;flex-direction:column;gap:8px;">
-            <label style="font-size:13.5px;font-weight:700;color:var(--txt);">ご相談内容 <span style="color:var(--acc);">*</span></label>
-            <textarea value="{{ message }}" oninput="{{ onMessage }}" rows="4" placeholder="AI教育・導入で実現したいこと、現在お困りの業務などをご記入ください。" style="background:var(--bg);border:1px solid var(--line2);border-radius:var(--r);padding:13px 15px;color:var(--txt);font-size:15px;outline:none;resize:vertical;font-family:inherit;" style-focus="border-color:var(--acc);"></textarea>
-            <sc-if value="{{ errMessage }}" hint-placeholder-val="{{ false }}"><span style="font-size:12.5px;color:#ff6b6b;">{{ errMessage }}</span></sc-if>
-          </div>
-          <button type="submit" style="grid-column:1 / -1;background:var(--acc);color:var(--accInk);border:none;font-weight:700;font-size:16px;padding:16px;border-radius:var(--r);cursor:pointer;box-shadow:0 8px 22px rgba(40,33,24,.12);" style-hover="filter:brightness(1.06);">送信する →</button>
-        </form>
-      </sc-if>
-
-      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
-        <div style="background:var(--surf);border:1px solid var(--acc);border-radius:calc(var(--r) + 4px);padding:56px 40px;text-align:center;">
-          <div style="width:62px;height:62px;border-radius:50%;background:color-mix(in srgb,var(--acc) 18%,transparent);color:var(--acc);display:grid;place-items:center;font-size:30px;margin:0 auto 22px;">✓</div>
-          <h3 style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:24px;margin:0 0 12px;">送信が完了しました</h3>
-          <p style="margin:0;font-size:15.5px;color:var(--mut);">お問い合わせありがとうございます。<br>担当者より2営業日以内にご連絡いたします。</p>
+      <form id="contactForm" novalidate style="background:var(--surf);border:1px solid var(--line2);border-radius:calc(var(--r) + 4px);padding:38px 36px;display:grid;grid-template-columns:1fr 1fr;gap:22px;">
+        <div style="grid-column:1 / -1;display:flex;flex-direction:column;gap:8px;">
+          <label for="cfKind" style="font-size:13.5px;font-weight:700;color:var(--txt);">お問い合わせ種別 <span style="color:var(--acc);">*</span></label>
+          <select id="cfKind" name="kind" required style="background:var(--bg);border:1px solid var(--line2);border-radius:var(--r);padding:13px 15px;color:var(--txt);font-size:15px;outline:none;">
+            <option value="無料相談">無料相談</option>
+            <option value="資料請求">資料請求</option>
+            <option value="助成金の活用相談">助成金の活用相談</option>
+            <option value="その他のお問い合わせ">その他のお問い合わせ</option>
+          </select>
         </div>
-      </sc-if>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <label for="cfCompany" style="font-size:13.5px;font-weight:700;color:var(--txt);">会社名 <span style="color:var(--acc);">*</span></label>
+          <input id="cfCompany" name="company" required placeholder="株式会社○○" style="background:var(--bg);border:1px solid var(--line2);border-radius:var(--r);padding:13px 15px;color:var(--txt);font-size:15px;outline:none;">
+          <span class="cf-err" id="errCompany" style="display:none;font-size:12.5px;color:#ff6b6b;">会社名をご入力ください。</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <label for="cfName" style="font-size:13.5px;font-weight:700;color:var(--txt);">お名前 <span style="color:var(--acc);">*</span></label>
+          <input id="cfName" name="name" required placeholder="山田 太郎" style="background:var(--bg);border:1px solid var(--line2);border-radius:var(--r);padding:13px 15px;color:var(--txt);font-size:15px;outline:none;">
+          <span class="cf-err" id="errName" style="display:none;font-size:12.5px;color:#ff6b6b;">お名前をご入力ください。</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <label for="cfEmail" style="font-size:13.5px;font-weight:700;color:var(--txt);">メールアドレス <span style="color:var(--acc);">*</span></label>
+          <input id="cfEmail" name="email" type="email" required placeholder="info@example.com" style="background:var(--bg);border:1px solid var(--line2);border-radius:var(--r);padding:13px 15px;color:var(--txt);font-size:15px;outline:none;">
+          <span class="cf-err" id="errEmail" style="display:none;font-size:12.5px;color:#ff6b6b;">正しいメールアドレスをご入力ください。</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <label for="cfTel" style="font-size:13.5px;font-weight:700;color:var(--txt);">電話番号 <span style="color:var(--mut2);font-weight:400;">(任意)</span></label>
+          <input id="cfTel" name="tel" type="tel" placeholder="03-0000-0000" style="background:var(--bg);border:1px solid var(--line2);border-radius:var(--r);padding:13px 15px;color:var(--txt);font-size:15px;outline:none;">
+        </div>
+        <div style="grid-column:1 / -1;display:flex;flex-direction:column;gap:8px;">
+          <label for="cfMessage" style="font-size:13.5px;font-weight:700;color:var(--txt);">ご相談内容 <span style="color:var(--acc);">*</span></label>
+          <textarea id="cfMessage" name="message" required rows="4" placeholder="AI教育・導入で実現したいこと、現在お困りの業務などをご記入ください。" style="background:var(--bg);border:1px solid var(--line2);border-radius:var(--r);padding:13px 15px;color:var(--txt);font-size:15px;outline:none;resize:vertical;font-family:inherit;"></textarea>
+          <span class="cf-err" id="errMessage" style="display:none;font-size:12.5px;color:#ff6b6b;">ご相談内容をご入力ください。</span>
+        </div>
+        <button type="submit" style="grid-column:1 / -1;background:var(--acc);color:var(--accInk);border:none;font-weight:700;font-size:16px;padding:16px;border-radius:var(--r);cursor:pointer;box-shadow:0 8px 22px rgba(40,33,24,.12);">送信する →</button>
+        <p style="grid-column:1 / -1;margin:2px 0 0;font-size:12.5px;color:var(--mut2);line-height:1.7;text-align:center;">送信ボタンを押すとメールソフトが起動し、<strong style="color:var(--txt);">info@optus-s.com</strong> 宛の下書きが作成されます。そのまま送信してください。<br>うまく起動しない場合は <a href="mailto:info@optus-s.com" style="color:var(--acc);font-weight:700;">info@optus-s.com</a> へ直接ご連絡ください。</p>
+      </form>
+
+      <div id="contactDone" style="display:none;background:var(--surf);border:1px solid var(--acc);border-radius:calc(var(--r) + 4px);padding:56px 40px;text-align:center;">
+        <div style="width:62px;height:62px;border-radius:50%;background:color-mix(in srgb,var(--acc) 18%,transparent);color:var(--acc);display:grid;place-items:center;font-size:30px;margin:0 auto 22px;">✓</div>
+        <h3 style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:24px;margin:0 0 12px;">メールソフトを起動しました</h3>
+        <p style="margin:0;font-size:15.5px;color:var(--mut);">起動したメールの内容をご確認のうえ、そのまま送信してください。<br>担当者より2営業日以内にご連絡いたします。</p>
+      </div>
+
+      <style>
+        #contactForm input:focus,#contactForm select:focus,#contactForm textarea:focus{border-color:var(--acc);}
+        #contactForm button[type="submit"]:hover{filter:brightness(1.06);}
+      </style>
+      <script>
+        (function(){
+          var form=document.getElementById('contactForm');
+          if(!form) return;
+          var TO='info@optus-s.com';
+          var g=function(id){return document.getElementById(id);};
+          var reEmail=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          function showErr(id,on){var e=g(id);if(e)e.style.display=on?'block':'none';}
+          form.addEventListener('submit',function(ev){
+            ev.preventDefault();
+            var kind=g('cfKind').value;
+            var company=g('cfCompany').value.trim();
+            var name=g('cfName').value.trim();
+            var email=g('cfEmail').value.trim();
+            var tel=g('cfTel').value.trim();
+            var message=g('cfMessage').value.trim();
+            var ok=true;
+            showErr('errCompany',!company); if(!company)ok=false;
+            showErr('errName',!name); if(!name)ok=false;
+            var badEmail=!email||!reEmail.test(email); showErr('errEmail',badEmail); if(badEmail)ok=false;
+            showErr('errMessage',!message); if(!message)ok=false;
+            if(!ok) return;
+            var subject='【'+kind+'】'+company+'／'+name+' 様';
+            var body=[
+              'お問い合わせ種別: '+kind,
+              '会社名: '+company,
+              'お名前: '+name,
+              'メールアドレス: '+email,
+              '電話番号: '+(tel||'（未入力）'),
+              '',
+              'ご相談内容:',
+              message,
+              ''
+            ].join('\r\n');
+            window.location.href='mailto:'+TO+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+            form.style.display='none';
+            g('contactDone').style.display='block';
+          });
+        })();
+      </script>
     </div>
   </section>
 
