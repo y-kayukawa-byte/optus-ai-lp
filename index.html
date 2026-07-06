@@ -119,7 +119,7 @@
   }
 </style>
 
-<div data-acc="{{ accent }}" data-round="{{ round }}" style="background:var(--bg);color:var(--txt);font-family:'Noto Sans JP',sans-serif;line-height:1.7;position:relative;overflow:hidden;-webkit-font-smoothing:antialiased;">
+<div data-acc="green" data-round="on" style="background:var(--bg);color:var(--txt);font-family:'Noto Sans JP',sans-serif;line-height:1.7;position:relative;overflow:hidden;-webkit-font-smoothing:antialiased;">
 
   <style>
     /* ===== OPTUS restyle : white base + vibrant multi-hue gradient (ref: horiemon.ai) ===== */
@@ -653,19 +653,74 @@
       <div class="eyebrow">FAQ</div>
       <h2 style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:clamp(26px,3.2vw,40px);margin:0 0 40px;">よくあるご質問</h2>
       <div style="display:flex;flex-direction:column;gap:12px;">
-        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="7">
-          <div style="background:var(--surf);border:1px solid rgba(20,22,44,.055);border-radius:var(--r);box-shadow:0 1px 2px rgba(20,22,44,.03),0 12px 28px rgba(20,22,44,.055);overflow:hidden;">
-            <button onclick="{{ f.toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;background:none;border:none;padding:20px 24px;cursor:pointer;color:var(--txt);">
-              <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:700;font-size:16px;">{{ f.q }}</span>
-              <span style="flex:none;width:26px;height:26px;border-radius:7px;background:color-mix(in srgb,var(--acc) 14%,transparent);color:var(--acc);display:grid;place-items:center;font-weight:700;font-size:18px;">{{ f.sign }}</span>
-            </button>
-            <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
-              <div style="padding:0 24px 22px;font-size:14.5px;color:var(--mut);line-height:1.85;">{{ f.a }}</div>
-            </sc-if>
-          </div>
-        </sc-for>
+<div class="faq-item" style="background:var(--surf);border:1px solid rgba(20,22,44,.055);border-radius:var(--r);box-shadow:0 1px 2px rgba(20,22,44,.03),0 12px 28px rgba(20,22,44,.055);overflow:hidden;">
+          <button type="button" class="faq-q" aria-expanded="false" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;background:none;border:none;padding:20px 24px;cursor:pointer;color:var(--txt);">
+            <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:700;font-size:16px;">ITやAIに詳しくない社員でも受講できますか？</span>
+            <span class="faq-sign" style="flex:none;width:26px;height:26px;border-radius:7px;background:color-mix(in srgb,var(--acc) 14%,transparent);color:var(--acc);display:grid;place-items:center;font-weight:700;font-size:18px;">＋</span>
+          </button>
+          <div class="faq-a" style="display:none;"><div style="padding:0 24px 22px;font-size:14.5px;color:var(--mut);line-height:1.85;">はい。むしろIT・AIに不慣れな企業様のためのプログラムです。AI・DXリテラシーやWeb・IT基礎から丁寧に学ぶため、パソコンの基本操作ができれば問題なく受講いただけます。</div></div>
+        </div>
+        <div class="faq-item" style="background:var(--surf);border:1px solid rgba(20,22,44,.055);border-radius:var(--r);box-shadow:0 1px 2px rgba(20,22,44,.03),0 12px 28px rgba(20,22,44,.055);overflow:hidden;">
+          <button type="button" class="faq-q" aria-expanded="false" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;background:none;border:none;padding:20px 24px;cursor:pointer;color:var(--txt);">
+            <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:700;font-size:16px;">何名まで受講できますか？費用はどうなりますか？</span>
+            <span class="faq-sign" style="flex:none;width:26px;height:26px;border-radius:7px;background:color-mix(in srgb,var(--acc) 14%,transparent);color:var(--acc);display:grid;place-items:center;font-weight:700;font-size:18px;">＋</span>
+          </button>
+          <div class="faq-a" style="display:none;"><div style="padding:0 24px 22px;font-size:14.5px;color:var(--mut);line-height:1.85;">1社最大3名まで受講いただけます。受講料は1名目が300,000円／人、2名目以降は150,000円／人（いずれも税別）です。4名以上をご希望の場合は別途ご相談ください。</div></div>
+        </div>
+        <div class="faq-item" style="background:var(--surf);border:1px solid rgba(20,22,44,.055);border-radius:var(--r);box-shadow:0 1px 2px rgba(20,22,44,.03),0 12px 28px rgba(20,22,44,.055);overflow:hidden;">
+          <button type="button" class="faq-q" aria-expanded="false" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;background:none;border:none;padding:20px 24px;cursor:pointer;color:var(--txt);">
+            <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:700;font-size:16px;">受講に必要なものはありますか？</span>
+            <span class="faq-sign" style="flex:none;width:26px;height:26px;border-radius:7px;background:color-mix(in srgb,var(--acc) 14%,transparent);color:var(--acc);display:grid;place-items:center;font-weight:700;font-size:18px;">＋</span>
+          </button>
+          <div class="faq-a" style="display:none;"><div style="padding:0 24px 22px;font-size:14.5px;color:var(--mut);line-height:1.85;">受講にはお一人につき1台、Claude Codeを導入したPCが必要です。環境構築（100,000円／台・税別）もあわせて承ります。※環境構築時の交通費は別途申し受けます。</div></div>
+        </div>
+        <div class="faq-item" style="background:var(--surf);border:1px solid rgba(20,22,44,.055);border-radius:var(--r);box-shadow:0 1px 2px rgba(20,22,44,.03),0 12px 28px rgba(20,22,44,.055);overflow:hidden;">
+          <button type="button" class="faq-q" aria-expanded="false" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;background:none;border:none;padding:20px 24px;cursor:pointer;color:var(--txt);">
+            <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:700;font-size:16px;">研修の期間・回数はどのくらいですか？</span>
+            <span class="faq-sign" style="flex:none;width:26px;height:26px;border-radius:7px;background:color-mix(in srgb,var(--acc) 14%,transparent);color:var(--acc);display:grid;place-items:center;font-weight:700;font-size:18px;">＋</span>
+          </button>
+          <div class="faq-a" style="display:none;"><div style="padding:0 24px 22px;font-size:14.5px;color:var(--mut);line-height:1.85;">AI・DX人材育成基礎プログラムは約1か月・全7回（週2回・各2時間／総14時間）です。基礎から実践まで7ステップで、自社で使える状態まで身につけます。</div></div>
+        </div>
+        <div class="faq-item" style="background:var(--surf);border:1px solid rgba(20,22,44,.055);border-radius:var(--r);box-shadow:0 1px 2px rgba(20,22,44,.03),0 12px 28px rgba(20,22,44,.055);overflow:hidden;">
+          <button type="button" class="faq-q" aria-expanded="false" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;background:none;border:none;padding:20px 24px;cursor:pointer;color:var(--txt);">
+            <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:700;font-size:16px;">人材開発支援助成金は使えますか？</span>
+            <span class="faq-sign" style="flex:none;width:26px;height:26px;border-radius:7px;background:color-mix(in srgb,var(--acc) 14%,transparent);color:var(--acc);display:grid;place-items:center;font-weight:700;font-size:18px;">＋</span>
+          </button>
+          <div class="faq-a" style="display:none;"><div style="padding:0 24px 22px;font-size:14.5px;color:var(--mut);line-height:1.85;">AI・DX人材育成基礎プログラムは、職務に関連した人材育成訓練（OFF-JT）として人材開発支援助成金の対象となる可能性があります。申請は受講企業様または顧問社会保険労務士様にて行っていただき、当社は申請に必要な研修関連書類の作成をサポートします。対象可否・支給額は労働局の審査により決定され、支給を保証するものではありません。</div></div>
+        </div>
+        <div class="faq-item" style="background:var(--surf);border:1px solid rgba(20,22,44,.055);border-radius:var(--r);box-shadow:0 1px 2px rgba(20,22,44,.03),0 12px 28px rgba(20,22,44,.055);overflow:hidden;">
+          <button type="button" class="faq-q" aria-expanded="false" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;background:none;border:none;padding:20px 24px;cursor:pointer;color:var(--txt);">
+            <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:700;font-size:16px;">研修が終わった後もサポートしてもらえますか？</span>
+            <span class="faq-sign" style="flex:none;width:26px;height:26px;border-radius:7px;background:color-mix(in srgb,var(--acc) 14%,transparent);color:var(--acc);display:grid;place-items:center;font-weight:700;font-size:18px;">＋</span>
+          </button>
+          <div class="faq-a" style="display:none;"><div style="padding:0 24px 22px;font-size:14.5px;color:var(--mut);line-height:1.85;">はい。月額50,000円（税別）のAI・DX伴走サポートで、チャット質問・オンライン相談・Claude Code／業務改善相談・コードレビュー・小規模開発支援などを継続してご提供します。必要な時だけご利用いただけ、いつでも解約可能です。</div></div>
+        </div>
+        <div class="faq-item" style="background:var(--surf);border:1px solid rgba(20,22,44,.055);border-radius:var(--r);box-shadow:0 1px 2px rgba(20,22,44,.03),0 12px 28px rgba(20,22,44,.055);overflow:hidden;">
+          <button type="button" class="faq-q" aria-expanded="false" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;background:none;border:none;padding:20px 24px;cursor:pointer;color:var(--txt);">
+            <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:700;font-size:16px;">まず何から始めればよいですか？</span>
+            <span class="faq-sign" style="flex:none;width:26px;height:26px;border-radius:7px;background:color-mix(in srgb,var(--acc) 14%,transparent);color:var(--acc);display:grid;place-items:center;font-weight:700;font-size:18px;">＋</span>
+          </button>
+          <div class="faq-a" style="display:none;"><div style="padding:0 24px 22px;font-size:14.5px;color:var(--mut);line-height:1.85;">まずは無料のAI導入診断（約60分）で、Claude Codeを導入できる環境か、助成金を活用できそうかをヒアリングします。ページ下部のフォーム、または info@optus-s.com からお気軽にお問い合わせください。</div></div>
+        </div>
       </div>
     </div>
+    <script>
+      (function(){
+        var items=document.querySelectorAll('#faq .faq-item');
+        Array.prototype.forEach.call(items,function(it){
+          var btn=it.querySelector('.faq-q');
+          var ans=it.querySelector('.faq-a');
+          var sign=it.querySelector('.faq-sign');
+          if(!btn||!ans||!sign) return;
+          btn.addEventListener('click',function(){
+            var open=ans.style.display==='block';
+            ans.style.display=open?'none':'block';
+            sign.textContent=open?'＋':'−';
+            btn.setAttribute('aria-expanded',(!open).toString());
+          });
+        });
+      })();
+    </script>
   </section>
 
   <!-- CONTACT -->
