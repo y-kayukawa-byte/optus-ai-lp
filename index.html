@@ -278,6 +278,7 @@
         <a href="#service2" style="color:var(--mut);text-decoration:none;font-size:14px;font-weight:500;">研修内容</a>
         <a href="#goals" style="color:var(--mut);text-decoration:none;font-size:14px;font-weight:500;">受講後</a>
         <a href="#pricing" style="color:var(--mut);text-decoration:none;font-size:14px;font-weight:500;">料金</a>
+        <a href="#simulator" style="color:var(--mut);text-decoration:none;font-size:14px;font-weight:500;">見積り</a>
         <a href="#subsidy" style="color:var(--mut);text-decoration:none;font-size:14px;font-weight:500;">助成金</a>
         <a href="#faq" style="color:var(--mut);text-decoration:none;font-size:14px;font-weight:500;">FAQ</a>
         <a href="#contact" style="background:var(--acc);color:var(--accInk);text-decoration:none;font-size:14px;font-weight:700;padding:10px 18px;border-radius:calc(var(--r) - 4px);">無料相談</a>
@@ -470,6 +471,140 @@
         </table>
       </div>
     </div>
+  </section>
+
+  <!-- SIMULATION / 料金シミュレーション -->
+  <section id="simulator" style="position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div style="max-width:1160px;margin:0 auto;padding:90px 24px;">
+      <div class="eyebrow">SIMULATION</div>
+      <h2 style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:clamp(25px,3.2vw,40px);margin:0 0 8px;">料金シミュレーション</h2>
+      <p style="margin:0 0 40px;font-size:15px;color:var(--mut);max-width:680px;">導入台数・受講人数・伴走サポートの有無を選ぶだけで、<strong style="color:var(--txt);">概算費用</strong>をその場で確認できます。表示はすべて税別です。</p>
+
+      <div class="sim-grid" style="display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start;">
+        <!-- controls -->
+        <div style="background:var(--surf);border:1px solid var(--line2);border-radius:calc(var(--r) + 4px);box-shadow:0 14px 38px rgba(20,22,44,.06);padding:34px 32px;display:flex;flex-direction:column;gap:30px;">
+
+          <!-- 導入台数 -->
+          <div class="sim-field">
+            <div class="sim-label"><span>Claude Code 導入台数</span><span class="sim-val"><b id="simSeats">1</b>台</span></div>
+            <input id="simSeatsRange" type="range" min="1" max="10" step="1" value="1" class="sim-range" aria-label="Claude Code 導入台数">
+            <div class="sim-scale"><span>1台</span><span>10台</span></div>
+            <div class="sim-note">環境構築 100,000円／台（税別）<br>※環境構築時の交通費は別途請求</div>
+          </div>
+
+          <!-- 受講人数 -->
+          <div class="sim-field">
+            <div class="sim-label"><span>研修の受講人数</span><span class="sim-val"><b id="simPeople">1</b>名</span></div>
+            <input id="simPeopleRange" type="range" min="0" max="3" step="1" value="1" class="sim-range" aria-label="研修の受講人数">
+            <div class="sim-scale"><span>0名</span><span>最大3名</span></div>
+            <div class="sim-note">1名目 300,000円／2名目以降 150,000円／人（税別）</div>
+          </div>
+
+          <!-- 伴走サポート -->
+          <div class="sim-field">
+            <div class="sim-label"><span>AI・DX伴走サポート</span></div>
+            <button type="button" id="simSupport" class="sim-toggle" role="switch" aria-checked="false">
+              <span class="sim-toggle-track"><span class="sim-toggle-knob"></span></span>
+              <span class="sim-toggle-txt">利用しない</span>
+            </button>
+            <div class="sim-note">50,000円／月（税別）・いつでも解約可能</div>
+          </div>
+        </div>
+
+        <!-- result -->
+        <div style="background:linear-gradient(165deg,rgba(14,155,144,.10),var(--surf));border:2px solid #0e9b90;border-radius:calc(var(--r) + 4px);box-shadow:0 18px 44px rgba(14,155,144,.16);padding:34px 32px;position:sticky;top:96px;">
+          <div style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:15px;letter-spacing:.06em;color:var(--mut);margin-bottom:4px;">お見積り（概算）</div>
+
+          <div style="border-bottom:1px dashed var(--line2);padding:16px 0;">
+            <div style="font-size:14px;color:var(--mut);">初期費用（一括）</div>
+            <div style="display:flex;align-items:baseline;gap:2px;margin-top:4px;"><span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:22px;color:#0e8f88;">¥</span><span id="simInitial" style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:40px;color:#0e8f88;line-height:1;">400,000</span></div>
+            <div style="font-size:12px;color:var(--mut2);margin-top:4px;">税込 ¥<span id="simInitialTax">440,000</span></div>
+            <div id="simInitialBreak" style="font-size:12.5px;color:var(--mut);margin-top:10px;line-height:1.8;"></div>
+          </div>
+
+          <div style="padding:16px 0 2px;">
+            <div style="font-size:14px;color:var(--mut);">月額費用</div>
+            <div style="display:flex;align-items:baseline;gap:2px;margin-top:4px;"><span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:18px;color:#3b6ff2;">¥</span><span id="simMonthly" style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:32px;color:#3b6ff2;line-height:1;">0</span><span style="font-size:14px;font-weight:700;color:var(--mut);margin-left:2px;">／月</span></div>
+            <div id="simMonthlyTax" style="font-size:12px;color:var(--mut2);margin-top:4px;">伴走サポートなし</div>
+          </div>
+
+          <div id="simHint" style="display:none;margin-top:14px;font-size:12.5px;color:#b8552f;background:rgba(217,119,87,.10);border-radius:10px;padding:10px 12px;line-height:1.65;"></div>
+
+          <a href="#contact" class="btn-primary" style="margin-top:22px;width:100%;justify-content:center;text-align:center;">この内容で相談する</a>
+          <p style="margin:14px 0 0;font-size:11.5px;color:var(--mut2);line-height:1.65;">※ あくまで概算です。実際のお見積りはヒアリング後にご提示します。6名以上・その他のご要望は個別にご相談ください。<br>※ 環境構築時の交通費は別途請求となります。</p>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      #simulator .sim-field{display:flex;flex-direction:column;}
+      #simulator .sim-label{display:flex;justify-content:space-between;align-items:baseline;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:800;font-size:16px;color:var(--txt);margin-bottom:14px;}
+      #simulator .sim-val{font-weight:700;font-size:13px;color:var(--mut);}
+      #simulator .sim-val b{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:24px;color:#0e8f88;margin-right:3px;}
+      #simulator .sim-range{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:999px;background:rgba(20,22,44,.12);outline:none;cursor:pointer;}
+      #simulator .sim-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid #0e9b90;box-shadow:0 3px 10px rgba(14,155,144,.4);cursor:pointer;transition:transform .15s;}
+      #simulator .sim-range::-webkit-slider-thumb:hover{transform:scale(1.12);}
+      #simulator .sim-range::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid #0e9b90;box-shadow:0 3px 10px rgba(14,155,144,.4);cursor:pointer;}
+      #simulator .sim-scale{display:flex;justify-content:space-between;font-size:11.5px;color:var(--mut2);margin-top:9px;}
+      #simulator .sim-note{font-size:12px;color:var(--mut);margin-top:9px;}
+      #simulator .sim-toggle{display:inline-flex;align-items:center;gap:12px;background:none;border:none;padding:0;cursor:pointer;}
+      #simulator .sim-toggle-track{position:relative;width:58px;height:32px;border-radius:999px;background:rgba(20,22,44,.16);transition:background .2s;flex:none;}
+      #simulator .sim-toggle-knob{position:absolute;top:3px;left:3px;width:26px;height:26px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.22);transition:transform .22s;}
+      #simulator .sim-toggle[aria-checked="true"] .sim-toggle-track{background:#3b6ff2;}
+      #simulator .sim-toggle[aria-checked="true"] .sim-toggle-knob{transform:translateX(26px);}
+      #simulator .sim-toggle-txt{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:800;font-size:15px;color:var(--mut);}
+      #simulator .sim-toggle[aria-checked="true"] .sim-toggle-txt{color:#3b6ff2;}
+      @media(max-width:820px){#simulator .sim-grid{grid-template-columns:1fr;}#simulator .sim-grid>div:last-child{position:static;}}
+    </style>
+
+    <script>
+      (function(){
+        var ENV=100000, P1=300000, PN=150000, SUP=50000, TAX=1.1;
+        var seats=document.getElementById('simSeatsRange');
+        var people=document.getElementById('simPeopleRange');
+        var support=document.getElementById('simSupport');
+        var fmt=function(n){return n.toLocaleString('ja-JP');};
+        function fill(el){
+          var min=+el.min, max=+el.max, v=+el.value;
+          var pct=max>min?((v-min)/(max-min))*100:0;
+          el.style.background='linear-gradient(90deg,#0e9b90 '+pct+'%, rgba(20,22,44,.12) '+pct+'%)';
+        }
+        function calc(){
+          var s=+seats.value, p=+people.value;
+          var on=support.getAttribute('aria-checked')==='true';
+          var env=s*ENV;
+          var train=p>=1?P1+PN*(p-1):0;
+          var initial=env+train;
+          var monthly=on?SUP:0;
+          document.getElementById('simSeats').textContent=s;
+          document.getElementById('simPeople').textContent=p;
+          document.getElementById('simInitial').textContent=fmt(initial);
+          document.getElementById('simInitialTax').textContent=fmt(Math.round(initial*TAX));
+          document.getElementById('simMonthly').textContent=fmt(monthly);
+          var b=['環境構築 '+s+'台 … ¥'+fmt(env)];
+          if(p>=1) b.push('研修 '+p+'名 … ¥'+fmt(train));
+          document.getElementById('simInitialBreak').innerHTML=b.join('<br>');
+          document.getElementById('simMonthlyTax').textContent=on?('税込 ¥'+fmt(Math.round(monthly*TAX))+'／月'):'伴走サポートなし';
+          support.querySelector('.sim-toggle-txt').textContent=on?'利用する':'利用しない';
+          var hint=document.getElementById('simHint');
+          if(p>s){
+            hint.style.display='block';
+            hint.textContent='研修受講にはお一人につき1台のClaude Code環境が必要です。導入台数を受講人数以上に設定することをおすすめします。';
+          }else{
+            hint.style.display='none';
+          }
+          fill(seats); fill(people);
+        }
+        seats.addEventListener('input',calc);
+        people.addEventListener('input',calc);
+        support.addEventListener('click',function(){
+          var on=support.getAttribute('aria-checked')==='true';
+          support.setAttribute('aria-checked',(!on).toString());
+          calc();
+        });
+        calc();
+      })();
+    </script>
   </section>
 
   <!-- SUBSIDY / 助成金活用サポート -->
