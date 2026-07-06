@@ -2,5 +2,4 @@
 .DS_Store
 
 # 制作用の作業素材（デプロイ対象外）
-input/
-*.pdf
+_source/
