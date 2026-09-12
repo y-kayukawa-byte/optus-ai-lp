@@ -373,128 +373,6 @@
     </div>
   </section>
 
-  <!-- BEFORE / AFTER : 具体的な導入イメージ -->
-  <section id="before" style="position:relative;z-index:1;">
-    <div style="max-width:1160px;margin:0 auto;padding:84px 24px;">
-      <div class="eyebrow">BEFORE / AFTER</div>
-      <h2 style="font-family:'Noto Sans JP',sans-serif;font-weight:800;font-size:clamp(24px,3.2vw,38px);margin:0 0 12px;line-height:1.4;">導入すると、<span class="grad-text">仕事がこう変わります。</span></h2>
-      <p style="margin:0 0 36px;font-size:15.5px;color:var(--mut);max-width:760px;">いくつもの手順を人が行っていた作業が、アップロードと確認だけで完了するようになります。</p>
-      <style>
-        #before .ba-card{background:var(--surf);border:1px solid var(--line2);border-radius:calc(var(--r) + 4px);box-shadow:0 2px 5px rgba(20,22,44,.035),0 16px 36px rgba(20,22,44,.05);padding:30px;margin-bottom:22px;}
-        #before .ba-head{display:inline-flex;align-items:center;gap:9px;font-family:'Noto Sans JP',sans-serif;font-weight:800;font-size:16px;margin-bottom:22px;}
-        #before .ba-head span{font-family:'Montserrat',sans-serif;font-weight:800;font-size:12px;letter-spacing:.06em;color:#fff;background:var(--grad);padding:5px 11px;border-radius:7px;}
-        #before .ba-cols{display:grid;grid-template-columns:1fr 48px 1fr;gap:14px;align-items:center;}
-        #before .ba-col{border-radius:14px;padding:22px 20px;height:100%;}
-        #before .ba-before{background:var(--surf2);border:1px solid var(--line);}
-        #before .ba-after{background:linear-gradient(160deg,rgba(31,107,86,.09),var(--surf));border:1px solid #1f6b56;}
-        #before .ba-label{font-family:'Montserrat','Noto Sans JP',sans-serif;font-weight:800;font-size:12.5px;letter-spacing:.1em;margin-bottom:14px;}
-        #before .ba-before .ba-label{color:var(--mut2);}
-        #before .ba-after .ba-label{color:#1f6b56;}
-        #before .ba-steps{display:grid;gap:8px;}
-        #before .ba-steps .s{background:#fff;border:1px solid var(--line);border-radius:9px;padding:11px 14px;font-size:13.5px;color:var(--txt);line-height:1.5;}
-        #before .ba-after .ba-steps .s{border-color:rgba(31,107,86,.28);}
-        #before .ba-sep{text-align:center;color:var(--mut2);font-size:12px;padding:2px 0;}
-        #before .ba-arrow{display:grid;place-items:center;font-size:26px;font-weight:800;}
-        #before .ba-arrow::before{content:"▶";background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;}
-        @media(max-width:760px){
-          #before .ba-cols{grid-template-columns:1fr;}
-          #before .ba-arrow{height:34px;transform:rotate(90deg);}
-        }
-      </style>
-
-      <div class="ba-card">
-        <div class="ba-head"><span>例 1</span>PDFからのデータ入力</div>
-        <div class="ba-cols">
-          <div class="ba-col ba-before">
-            <div class="ba-label">BEFORE</div>
-            <div class="ba-steps">
-              <div class="s">物件資料PDFを開く</div>
-              <div class="ba-sep">↓</div>
-              <div class="s">必要な情報を探す</div>
-              <div class="ba-sep">↓</div>
-              <div class="s">Excelへ手入力する</div>
-              <div class="ba-sep">↓</div>
-              <div class="s">内容を確認する</div>
-              <div class="ba-sep">↓</div>
-              <div class="s">ファイル名を変更して保存</div>
-            </div>
-          </div>
-          <div class="ba-arrow"></div>
-          <div class="ba-col ba-after">
-            <div class="ba-label">AFTER</div>
-            <div class="ba-steps">
-              <div class="s">PDFをアップロード</div>
-              <div class="ba-sep">↓</div>
-              <div class="s">AIが必要項目を抽出</div>
-              <div class="ba-sep">↓</div>
-              <div class="s">指定フォーマットへ自動変換</div>
-              <div class="ba-sep">↓</div>
-              <div class="s">Excel等で出力</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="ba-card">
-        <div class="ba-head"><span>例 2</span>報告書の作成</div>
-        <div class="ba-cols">
-          <div class="ba-col ba-before">
-            <div class="ba-label">BEFORE</div>
-            <div class="ba-steps">
-              <div class="s">写真を選ぶ</div>
-              <div class="ba-sep">↓</div>
-              <div class="s">画像を加工する</div>
-              <div class="ba-sep">↓</div>
-              <div class="s">Excel・Wordへ貼り付け</div>
-              <div class="ba-sep">↓</div>
-              <div class="s">文章を作成する</div>
-              <div class="ba-sep">↓</div>
-              <div class="s">PDF化する</div>
-            </div>
-          </div>
-          <div class="ba-arrow"></div>
-          <div class="ba-col ba-after">
-            <div class="ba-label">AFTER</div>
-            <div class="ba-steps">
-              <div class="s">写真・情報をアップロード</div>
-              <div class="ba-sep">↓</div>
-              <div class="s">AI・システムが処理</div>
-              <div class="ba-sep">↓</div>
-              <div class="s">会社指定フォーマットの<br>報告書を生成</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="ba-card">
-        <div class="ba-head"><span>例 3</span>定型文書の作成</div>
-        <div class="ba-cols">
-          <div class="ba-col ba-before">
-            <div class="ba-label">BEFORE</div>
-            <div class="ba-steps">
-              <div class="s">過去のメールを探す</div>
-              <div class="ba-sep">↓</div>
-              <div class="s">文章をコピーする</div>
-              <div class="ba-sep">↓</div>
-              <div class="s">物件名・氏名等を書き換える</div>
-              <div class="ba-sep">↓</div>
-              <div class="s">内容を確認する</div>
-            </div>
-          </div>
-          <div class="ba-arrow"></div>
-          <div class="ba-col ba-after">
-            <div class="ba-label">AFTER</div>
-            <div class="ba-steps">
-              <div class="s">必要項目を入力</div>
-              <div class="ba-sep">↓</div>
-              <div class="s">会社のルール・用途に<br>合わせた文章を自動生成</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FLOW : 導入の流れ -->
   <section id="flow" style="position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
     <div style="max-width:1000px;margin:0 auto;padding:84px 24px;">
@@ -591,26 +469,6 @@
     </div>
   </section>
 
-  <!-- GRANT : デジタル化・AI導入補助金2026 活用相談 -->
-  <section id="grant" style="position:relative;z-index:1;">
-    <div style="max-width:1000px;margin:0 auto;padding:84px 24px;">
-      <div class="eyebrow">SUBSIDY</div>
-      <h2 style="font-family:'Noto Sans JP',sans-serif;font-weight:800;font-size:clamp(24px,3.2vw,38px);margin:0 0 12px;line-height:1.45;">デジタル化・AI導入補助金2026<br><span class="grad-text">活用相談対応</span></h2>
-      <p style="margin:0 0 30px;font-size:15.5px;color:var(--mut);max-width:780px;line-height:1.9;">AI・ITツールの導入にあたり、<strong style="color:var(--txt);">デジタル化・AI導入補助金2026</strong>の活用についてもご相談いただけます。補助金を活用する場合は、対象となるITツール・サービス内容・申請条件等を確認したうえで、導入プランをご提案します。</p>
-      <div style="background:var(--surf);border:1px solid var(--line2);border-radius:calc(var(--r) + 4px);box-shadow:0 2px 5px rgba(20,22,44,.035),0 16px 36px rgba(20,22,44,.05);padding:30px 32px;">
-        <div style="font-family:'Noto Sans JP',sans-serif;font-weight:800;font-size:15px;margin-bottom:16px;display:flex;align-items:center;gap:9px;"><span class="cl-mark" style="width:15px;height:15px;"></span>ご相談いただけること</div>
-        <ul style="list-style:none;margin:0 0 24px;padding:0;display:grid;gap:11px;">
-          <li style="display:flex;gap:10px;font-size:14.5px;color:var(--txt);line-height:1.7;"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:rgba(31,107,86,.14);color:#1f6b56;display:grid;place-items:center;font-size:12px;font-weight:800;margin-top:1px;">✓</span>補助金活用を前提とした導入プランのご提案</li>
-          <li style="display:flex;gap:10px;font-size:14.5px;color:var(--txt);line-height:1.7;"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:rgba(31,107,86,.14);color:#1f6b56;display:grid;place-items:center;font-size:12px;font-weight:800;margin-top:1px;">✓</span>対象となり得るITツール・サービス内容の整理</li>
-          <li style="display:flex;gap:10px;font-size:14.5px;color:var(--txt);line-height:1.7;"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:rgba(31,107,86,.14);color:#1f6b56;display:grid;place-items:center;font-size:12px;font-weight:800;margin-top:1px;">✓</span>申請条件・進め方に関する情報のご案内</li>
-        </ul>
-        <div style="background:var(--surf2);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;">
-          <p style="margin:0;font-size:13px;color:var(--mut2);line-height:1.9;">※補助金の交付には審査があります。<br>※採択・交付を保証するものではありません。<br>※補助対象となるサービス・費用は、登録されたITツールおよび申請内容等によって異なります。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- STRENGTH : OPTUSの強み -->
   <section id="strength" style="position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
     <div style="max-width:1160px;margin:0 auto;padding:84px 24px;">
@@ -656,7 +514,6 @@
       <details class="fq"><summary>どんな業務が自動化できるか、まだ分かっていません。</summary><div class="fq-a">「この作業が毎回大変」という状態からご相談いただけます。無料AI業務診断で業務を伺い、自動化・システム化できそうな業務と効果をご提案します。</div></details>
       <details class="fq"><summary>既製のSaaSと何が違うのですか？</summary><div class="fq-a">既製品は、会社側がシステムのやり方に業務を合わせる必要があります。OPTUSは、御社の業務に合わせて専用の仕組みを構築します。今ある業務資産を活かせます。</div></details>
       <details class="fq"><summary>料金はどのくらいかかりますか？</summary><div class="fq-a">AI業務DX導入パッケージは100万円〜（税別）です。料金は、自動化する業務・機能・導入規模によって異なります。まずは無料診断で内容を確認し、お見積りをご提案します。</div></details>
-      <details class="fq"><summary>補助金は必ず使えますか？</summary><div class="fq-a">補助金の交付には審査があり、採択・交付を保証するものではありません。対象となり得るITツールや申請条件を確認したうえで、活用を前提とした導入プランをご相談いただけます。</div></details>
       <details class="fq"><summary>導入した後のサポートはありますか？</summary><div class="fq-a">はい。導入後も、実際の利用状況を確認しながら、業務に合わせた改善・運用支援を行います。使いながら育てていけます。</div></details>
     </div>
   </section>
@@ -677,7 +534,6 @@
           <select id="cfKind" name="kind" required style="background:var(--bg);border:1px solid var(--line2);border-radius:var(--r);padding:13px 15px;color:var(--txt);font-size:15px;outline:none;">
             <option value="無料AI業務診断">無料AI業務診断</option>
             <option value="AI業務DX導入パッケージ">AI業務DX導入パッケージ</option>
-            <option value="補助金活用のご相談">補助金活用のご相談</option>
             <option value="その他のお問い合わせ">その他のお問い合わせ</option>
           </select>
         </div>
